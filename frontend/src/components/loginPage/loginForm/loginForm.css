@@ -75,9 +75,8 @@
   border: 2px solid var(--input-focus);
 }
 
-/* Adding space between the "Police ID" input and "Password" label */
 .login-input + .login-label {
-  margin-top: 20px; /* Adjust the margin to your preference */
+  margin-top: 20px; 
 }
 
 .login-button:active {
