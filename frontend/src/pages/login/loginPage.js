@@ -1,12 +1,18 @@
 import LoginForm from "../../components/loginPage/loginForm/loginForm";
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/loginPage/navbar/navbar";
+
+import MainLogo from "../../components/loginPage/photos/mainLogo.svg";
+
+import "./loginPage.css";
 
 export default function LoginPage() {
-    return (
-        <div>
-            <Navbar />
-            <h1>Login Page</h1>
-            <LoginForm />
-        </div>
-    )
+  return (
+    <div>
+      <Navbar />
+      <div className="login-page-container">
+        <LoginForm />
+        <img src={MainLogo} alt="Main Logo" />
+      </div>
+    </div>
+  );
 }

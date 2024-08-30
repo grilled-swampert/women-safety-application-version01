@@ -8,19 +8,21 @@ export default function LoginForm() {
           <div className="login-card-front">
             <div className="login-title">Login</div>
             <form className="login-form" action="">
+              <label className="login-label">Police ID:</label>
               <input
                 className="login-input"
-                name="email"
-                placeholder="Enter your email"
-                type="email"
+                name="policeId"
+                placeholder="XXXXXXXXXXX"
+                type="string"
               />
+              <label className="login-label">Password:</label>
               <input
                 className="login-input"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="XXXXXXXXXXX"
                 type="password"
               />
-              <button className="login-button">Let's go!</button>
+              <button className="login-button">Login</button>
             </form>
           </div>
         </div>

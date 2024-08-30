@@ -1,13 +1,13 @@
 .login-wrapper {
-  --input-focus: #2d8cf0;
-  --font-color: #323232;
-  --bg-color: #CCDBFD;
-  --main-color: #323232;
+  --input-focus: #003566;
+  --font-color: rgba(0, 53, 102, 0.2);
+  --bg-color: #FFFFFF;
+  --main-color: #003566;
 }
 
 .login-card-inner {
-  width: 300px;
-  height: 350px;
+  width: 700px;
+  height: 750px;
   position: relative;
   text-align: center;
   transition: transform 0.8s;
@@ -20,36 +20,46 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: lightgrey;
+  background: #CCDBFD;
   gap: 20px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
+  width: 700px;
+  height: 750px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; 
   gap: 20px;
+  padding-left: 15px;
 }
 
 .login-title {
   margin: 20px 0;
-  font-size: 25px;
+  font-size: 45px;
   font-weight: 900;
   text-align: center;
   color: var(--main-color);
+  padding-bottom: 7%;
+}
+
+.login-label {
+  font-size: 24px;
+  font-weight: 600;
+  color: #003566;
 }
 
 .login-input {
-  width: 250px;
-  height: 40px;
+  width: 625px;
+  height: 71px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
   box-shadow: 4px 4px var(--main-color);
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 600;
   color: var(--font-color);
   padding: 5px 10px;
@@ -65,6 +75,11 @@
   border: 2px solid var(--input-focus);
 }
 
+/* Adding space between the "Police ID" input and "Password" label */
+.login-input + .login-label {
+  margin-top: 20px; /* Adjust the margin to your preference */
+}
+
 .login-button:active {
   box-shadow: 0px 0px var(--main-color);
   transform: translate(3px, 3px);
@@ -72,14 +87,16 @@
 
 .login-button {
   margin: 20px 0;
-  width: 120px;
-  height: 40px;
+  width: 625px;
+  height: 75px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
-  background-color: var(--bg-color);
+  background-color: #86AAFF;
   box-shadow: 4px 4px var(--main-color);
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--font-color);
   cursor: pointer;
+  letter-spacing: 2px;
+  color: #003566;
 }
