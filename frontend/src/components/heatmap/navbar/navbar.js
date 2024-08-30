@@ -1,6 +1,6 @@
 import React from "react";
-import Menu from "../photos/menu.svg";
-import "../../loginPage/navbar/navbar.css";
+import Menu from "../../heatmap/photos/menu.svg";
+import "../../heatmap/navbar/navbar.css";
 
 const Navbar = () => {
   return (
@@ -14,8 +14,11 @@ const Navbar = () => {
 
           <ul className="navbar-menu" data-aos="fade-down">
             <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
               <button>
-                <a href="#home">Home</a>
+                <a href="#heatmap">HeatMap</a>
               </button>
             </li>
             <li>

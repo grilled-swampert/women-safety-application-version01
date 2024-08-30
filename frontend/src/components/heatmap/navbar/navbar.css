@@ -1,0 +1,135 @@
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  overflow: hidden;
+  background-color: #ccdbfd;
+  height: 12vh;
+}
+
+.navbar-logo {
+  flex: 1;
+  display: flex;
+  position: relative;
+  padding: 20px;
+  align-items: center;
+}
+
+.navbar-logo-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+
+  background-color: var(--primary-color);
+  z-index: -1;
+}
+
+.navbar-logo h4 {
+  padding-left: 30px;
+
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: var(--playfair-display);
+  color: #001e64;
+  opacity: 0.8;
+}
+
+.navbar-menu,
+.navbar-mobile {
+  padding: 20px;
+  flex: 1.236;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 64px;
+
+  list-style: none;
+}
+
+.navbar-menu li {
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--secondary-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 20px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navbar-menu li img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.navbar-menu li button {
+  background-color: white;
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--secondary-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.navbar-login {
+  display: flex;
+  flex: 0.5;
+  gap: 20px;
+  line-height: 20px;
+  padding: 20px;
+}
+
+.navbar-mobile {
+  display: none;
+  gap: 20px;
+
+  position: relative;
+}
+
+.navbar-login-button {
+  padding: 10px 20px;
+  font-family: var(--plus-jakarta-sans);
+  font-size: 22px;
+  font-weight: 900;
+  color: black;
+  background-color: #86aaff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  width: 200%;
+  letter-spacing: 5px;
+}
+
+.navbar-login-button:hover {
+  background-color: #6e9cff;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+}
+
+@media screen and (max-width: 900px) {
+  .navbar-container {
+    background: var(--primary-color);
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-menu-mobile {
+    display: flex;
+  }
+}
