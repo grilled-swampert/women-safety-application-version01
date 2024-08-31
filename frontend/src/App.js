@@ -8,7 +8,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<LoginPage />} />
         <Route path="/heatmap" element={<HeatmapPage />} />
+        <Route path="/logs" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );
