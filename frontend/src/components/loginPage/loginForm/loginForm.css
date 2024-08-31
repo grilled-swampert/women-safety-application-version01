@@ -10,8 +10,8 @@
 }
 
 .login-card-inner {
-  width: 43.75rem;
-  height: 46.875rem;
+  width: 40.75rem;
+  height: 40.75rem;
   position: relative;
   text-align: center;
   transition: transform 0.8s;
@@ -30,7 +30,7 @@
   border: 0.125rem solid var(--main-color);
   box-shadow: 0.25rem 0.25rem var(--main-color);
   width: 43.75rem;
-  height: 46.875rem;
+  height: 40.875rem;
 }
 
 .login-form {
