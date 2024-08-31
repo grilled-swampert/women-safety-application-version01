@@ -1,11 +1,11 @@
-import MapContent from "../../components/heatmap/mapContent/mapContent";
+import React from "react";
 import Navbar from "../../components/navbar/navbar";
 
-export default function HeatmapPage() {
+export default function MapPage() {
   return (
     <div>
       <Navbar />
-      <MapContent />
+      <h1>HeatMapPage</h1>
     </div>
   );
 }

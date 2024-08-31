@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login/loginPage";
 import HeatmapPage from "./pages/heatmap/heatmapPage";
 import HomePage from "./components/home/homePage/homePage";
-import LogPage from "./components/logs/logPage/logPage";
-import MapPage from "./components/map/mapPage/mapPage";
+import LogPage from "./pages/logPage/logPage";
+import MapPage from "./pages/mapPage/mapPage";
+import ResourcesPage from "./components/resources/resourcesMain/resourcesPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/heatmap" element={<HeatmapPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/logs" element={<LogPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
       </Routes>
     </BrowserRouter>
   );
