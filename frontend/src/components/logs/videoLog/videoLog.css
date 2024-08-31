@@ -34,7 +34,7 @@
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
   gap: 20px;
 }
 
@@ -43,21 +43,39 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
+  display: flex;
+  flex-direction: row;
 }
 
 .video-card p strong {
     color: rgb(71, 71, 71);
 }
 
+.location {
+  margin-top: 10px;
+  font-size: 30px;
+  color: black;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.video-info {
+  padding-left: 40px;
+  padding-bottom: 10px;
+  width: 25%;
+}
+
 .video-placeholder {
+  align-items: center;
   background-color: #eee;
-  height: 150px;
+  height: 240px;
+  width: 240px;
   margin-bottom: 16px;
 }
 
 .more-info-btn {
   margin-top: 10px;
-  background-color: #86AAFF;
+  background-color: #303030;
   color: white;
   padding: 8px 16px;
   border: none;
@@ -70,7 +88,7 @@
 }
 
 .more-info-btn:hover {
-  background-color: #2779bd;
+  background-color: #1c1c1c;
 }
 
 @media (max-width: 768px) {
