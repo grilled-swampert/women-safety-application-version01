@@ -1,3 +1,7 @@
+:root {
+  --base-font-size: 16px;
+}
+
 .login-wrapper {
   --input-focus: #003566;
   --font-color: rgba(0, 53, 102, 0.2);
@@ -6,8 +10,8 @@
 }
 
 .login-card-inner {
-  width: 700px;
-  height: 750px;
+  width: 43.75rem;
+  height: 46.875rem;
   position: relative;
   text-align: center;
   transition: transform 0.8s;
@@ -15,54 +19,54 @@
 }
 
 .login-card-front {
-  padding: 20px;
+  padding: 1.25rem;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: #CCDBFD;
-  gap: 20px;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
-  box-shadow: 4px 4px var(--main-color);
-  width: 700px;
-  height: 750px;
+  gap: 1.25rem;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid var(--main-color);
+  box-shadow: 0.25rem 0.25rem var(--main-color);
+  width: 43.75rem;
+  height: 46.875rem;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  gap: 20px;
-  padding-left: 15px;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-left: 0.9375rem;
 }
 
 .login-title {
-  margin: 20px 0;
-  font-size: 45px;
+  margin: 1.25rem 0;
+  font-size: 2.813rem;
   font-weight: 900;
   text-align: center;
   color: var(--main-color);
-  padding-bottom: 7%;
+  padding-bottom: 1.125rem;
 }
 
 .login-label {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #003566;
 }
 
 .login-input {
-  width: 625px;
-  height: 71px;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
+  width: 39.0625rem;
+  height: 4.4375rem;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid var(--main-color);
   background-color: var(--bg-color);
-  box-shadow: 4px 4px var(--main-color);
-  font-size: 25px;
+  box-shadow: 0.25rem 0.25rem var(--main-color);
+  font-size: 1.5625rem;
   font-weight: 600;
   color: var(--font-color);
-  padding: 5px 10px;
+  padding: 0.3125rem 0.625rem;
   outline: none;
 }
 
@@ -72,30 +76,30 @@
 }
 
 .login-input:focus {
-  border: 2px solid var(--input-focus);
+  border: 0.125rem solid var(--input-focus);
 }
 
 .login-input + .login-label {
-  margin-top: 20px; 
+  margin-top: 1.25rem;
 }
 
 .login-button:active {
-  box-shadow: 0px 0px var(--main-color);
-  transform: translate(3px, 3px);
+  box-shadow: 0 0 var(--main-color);
+  transform: translate(0.1875rem, 0.1875rem);
 }
 
 .login-button {
-  margin: 20px 0;
-  width: 625px;
-  height: 75px;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
+  margin: 1.25rem 0;
+  width: 39.0625rem;
+  height: 4.6875rem;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid var(--main-color);
   background-color: #86AAFF;
-  box-shadow: 4px 4px var(--main-color);
-  font-size: 30px;
+  box-shadow: 0.25rem 0.25rem var(--main-color);
+  font-size: 1.875rem;
   font-weight: 600;
   color: var(--font-color);
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   color: #003566;
 }

@@ -1,23 +1,23 @@
 .container {
-  margin: 2% auto;
+  margin: 1.25rem auto; /* 2% */
   width: 80%;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
   display: flex;
   flex-direction: column;
 }
 
 .container h2 {
   margin: 0;
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   background-color: #f8f8f8;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 0.0625rem solid #e0e0e0; /* 1px */
 }
 
 .map-container {
   position: relative;
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,8 +26,6 @@
 .map-image {
   width: 100%;
   display: block;
-  border-radius: 10px;
-  border: black 2px solid;
 }
 
 .alert-overlay {
@@ -37,25 +35,25 @@
   transform: translate(-50%, -50%);
   background-color: #ff4d4d;
   color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  border-radius: 0.25rem; /* 4px */
   display: flex;
   align-items: center;
 }
 
 .alert-icon {
-  font-size: 24px;
-  margin-right: 10px;
+  font-size: 1.5rem; /* 24px */
+  margin-right: 0.625rem; /* 10px */
 }
 
 .cctv-information {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
 }
 
 .cctv-container {
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   display: flex;
   flex-wrap: wrap;
 }
@@ -63,13 +61,12 @@
 .cctv-image {
   flex: 1;
   max-width: 45%;
-  margin-right: 20px;
-  flex: 1;
+  margin-right: 1.25rem; /* 20px */
 }
 
 .cctv-image img {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 0.25rem; /* 4px */
 }
 
 .cctv-info {
@@ -78,75 +75,48 @@
 
 .cctv-info h3 {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px */
   font-weight: 700;
-  font-size: 35px;
+  font-size: 2.1875rem; /* 35px */
   color: #3d3d3d;
 }
 
 .cctv-info p strong {
   margin: 0;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem; /* 40px */
   font-weight: 400;
-  font-size: 25px;
+  font-size: 1.5625rem; /* 25px */
   color: darkgray;
 }
 
 .cctv-imp-info {
   margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 1.25rem; /* 20px */
+  padding-bottom: 1.25rem; /* 20px */
   font-weight: 400;
-  font-size: 25px;
+  font-size: 1.5625rem; /* 25px */
   color: grey;
 }
 
 .cctv-info p {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px */
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1.25rem; /* 20px */
   color: grey;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.location-info {
   margin-top: 20px;
-  align-items: center;
-  padding-left: 25%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
-
-.button {
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 20px;
-  border: 1px solid #2c2c2c;
-  border-radius: 10px;
-  font-weight: 500;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+.location-info h4 {
+  margin: 0;
+  font-size: 1.2em;
 }
-
-.button-primary {
-  background-color: #2c2c2c;
-  color: white;
-}
-
-.button-secondary {
-  background-color: #ec221f;
-  color: white;
-}
-
-.button:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-}
-
-.button:active {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); 
+.location-info p {
+  margin: 5px 0;
+  font-size: 1em;
 }

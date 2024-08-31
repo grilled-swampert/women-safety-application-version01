@@ -1,15 +1,25 @@
-import React from "react";
+// MapContent.js
+import React, { useState } from "react";
 import "./mapContent.css";
 
 import cctvFootage from "../photos/cctvFootage.svg";
+import sampleMap from "../photos/sampleMap.png";
 import LeafletMap from "../leaflet/leafletMap";
 
 export default function MapContent() {
+  const [locationInfo, setLocationInfo] = useState(null);
+
+  const handleLocationSelected = (location) => {
+    setLocationInfo(location);
+  };
+
   return (
     <div className="container">
       <h2>Map:</h2>
       <div className="map-container">
-        <LeafletMap />
+        <div className="map-image">
+          <LeafletMap onLocationSelected={handleLocationSelected} />
+        </div>
         <div className="alert-overlay">
           <span className="alert-icon">!</span>
           ALERT (1)
@@ -40,15 +50,15 @@ export default function MapContent() {
               Helsinki excepteur Basset hound. Zürich sleepy perfect
               consectetur.
             </p>
+            {locationInfo && (
+              <div className="location-info">
+                <h4>Your Location</h4>
+                <p>
+                  Latitude: {locationInfo.lat}, Longitude: {locationInfo.lng}
+                </p>
+              </div>
+            )}
           </div>
-        </div>
-        <div className="button-container">
-          <button className="button button-primary">
-            Send Backup to Location
-          </button>
-          <button className="button button-secondary">
-            Send Alert to Nearest Police Station
-          </button>
         </div>
       </div>
     </div>

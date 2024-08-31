@@ -11,14 +11,14 @@ a {
   display: flex;
   overflow: hidden;
   background-color: #ccdbfd;
-  height: 12vh;
+  height: 7.5rem;
 }
 
 .navbar-logo {
   flex: 1;
   display: flex;
   position: relative;
-  padding: 20px;
+  padding: 1.25rem;
   align-items: center;
 }
 
@@ -26,16 +26,14 @@ a {
   position: absolute;
   inset: 0;
   width: 100%;
-
   background-color: var(--primary-color);
   z-index: -1;
 }
 
 .navbar-logo h4 {
-  padding-left: 30px;
-
+  padding-left: 1.875rem;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-family: var(--playfair-display);
   color: #001e64;
@@ -44,13 +42,12 @@ a {
 
 .navbar-menu,
 .navbar-mobile {
-  padding: 20px;
+  padding: 1.25rem;
   flex: 1.236;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 64px;
-
+  gap: 4rem;
   list-style: none;
 }
 
@@ -58,16 +55,16 @@ a {
   font-weight: 500;
   font-family: var(--plus-jakarta-sans);
   color: var(--secondary-color);
-  font-size: 20px;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  line-height: 20px;
+  line-height: 1.25rem;
   cursor: pointer;
-  padding: 8px;
+  padding: 0.5rem;
 }
 
 .navbar-menu li img {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
 }
 
@@ -76,51 +73,50 @@ a {
   font-weight: 500;
   font-family: var(--plus-jakarta-sans);
   color: var(--secondary-color);
-  font-size: 20px;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  line-height: 20px;
+  line-height: 1.25rem;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
 }
 
 .navbar-login {
   display: flex;
   flex: 0.5;
-  gap: 20px;
-  line-height: 20px;
-  padding: 20px;
+  gap: 1.25rem;
+  line-height: 1.25rem;
+  padding: 1.25rem;
 }
 
 .navbar-mobile {
   display: none;
-  gap: 20px;
-
+  gap: 1.25rem;
   position: relative;
 }
 
 .navbar-login-button {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   font-family: var(--plus-jakarta-sans);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 900;
   color: black;
   background-color: #86aaff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  width: 200%;
-  letter-spacing: 5px;
+  width: 4rem;
+  letter-spacing: 0.3125rem;
 }
 
 .navbar-login-button:hover {
   background-color: #6e9cff;
-  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+  box-shadow: -0.125rem -0.0625rem 0.5rem 0 rgba(255, 255, 255, 0.7), 0.125rem 0.0625rem 0.5rem 0 rgba(95, 157, 231, 0.48);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 56.25rem) {
   .navbar-container {
     background: var(--primary-color);
   }

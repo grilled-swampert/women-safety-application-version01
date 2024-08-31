@@ -31,9 +31,6 @@ const Navbar = () => {
             <li className={getActiveClass("/logs")}>
               <Link to="/logs">Logs</Link>
             </li>
-            <li className={getActiveClass("/resources")}>
-              <Link to="/resources">Resources</Link>
-            </li>
           </ul>
 
           <ul className="navbar-login">
