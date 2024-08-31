@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import Menu from "../photos/menu.svg";
 import "./navbar.css";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("home");
+  const location = useLocation();
+  const path = location.pathname;
 
-  const handleItemClick = (item) => {
-    setActiveItem(item);
-  };
+  const getActiveClass = (itemPath) => (path === itemPath ? "active" : "");
 
   return (
     <div>
@@ -19,35 +19,23 @@ const Navbar = () => {
           </div>
 
           <ul className="navbar-menu" data-aos="fade-down">
-            <li
-              className={activeItem === "home" ? "active" : ""}
-              onClick={() => handleItemClick("home")}
-            >
-              <a href="#home">Home</a>
+            <li className={getActiveClass("/home")}>
+              <Link to="/home">Home</Link>
             </li>
-            <li
-              className={activeItem === "heatmap" ? "active" : ""}
-              onClick={() => handleItemClick("heatmap")}
-            >
-              <a href="#heatmap">HeatMap</a>
+            <li className={getActiveClass("/heatmap")}>
+              <Link to="/heatmap">HeatMap</Link>
             </li>
-            <li
-              className={activeItem === "map" ? "active" : ""}
-              onClick={() => handleItemClick("map")}
-            >
-              <a href="#map">Map</a>
+            <li className={getActiveClass("/map")}>
+              <Link to="/map">Map</Link>
             </li>
-            <li
-              className={activeItem === "logs" ? "active" : ""}
-              onClick={() => handleItemClick("logs")}
-            >
-              <a href="#logs">Logs</a>
+            <li className={getActiveClass("/logs")}>
+              <Link to="/logs">Logs</Link>
             </li>
           </ul>
 
           <ul className="navbar-login">
             <li>
-              <button className="navbar-login-button">Login</button>
+              <button className="navbar-login-button">Logout</button>
             </li>
           </ul>
 

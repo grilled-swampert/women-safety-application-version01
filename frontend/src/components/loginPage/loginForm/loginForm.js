@@ -7,7 +7,7 @@ export default function LoginForm() {
 
   const handleLogin = (event) => {
     event.preventDefault(); 
-    navigate('/heatmap'); 
+    navigate('/home'); 
   };
 
   return (
