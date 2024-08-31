@@ -2,14 +2,14 @@ import React from "react";
 import "./mapContent.css";
 
 import cctvFootage from "../photos/cctvFootage.svg";
-import sampleMap from "../photos/sampleMap.png";
+import LeafletMap from "../leaflet/leafletMap";
 
 export default function MapContent() {
   return (
     <div className="container">
       <h2>Map:</h2>
       <div className="map-container">
-        <img src={sampleMap} alt="Map" className="map-image" />
+        <LeafletMap />
         <div className="alert-overlay">
           <span className="alert-icon">!</span>
           ALERT (1)

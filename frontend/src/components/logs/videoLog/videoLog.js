@@ -4,9 +4,9 @@ import './videoLog.css';
 
 const videoData = [
   { id: 1, location: 'KJ SOMAIYA', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 2, location: 'Vidyavihar West', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 3, location: 'Kurla West', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 4, location: 'Mulund West', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
+  { id: 2, location: 'pop', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
+  { id: 3, location: 'womp', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
+  { id: 4, location: 'bonk', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
 ];
 
 const VideoCard = ({ video }) => (

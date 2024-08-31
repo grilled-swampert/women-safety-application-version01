@@ -3,6 +3,8 @@ import Navbar from "../../components/loginPage/navbar/navbar";
 
 import MainLogo from "../../components/loginPage/photos/mainLogo.svg";
 
+import Footer from "../../components/footer/footer";
+
 import "./loginPage.css";
 
 export default function LoginPage() {
@@ -13,6 +15,7 @@ export default function LoginPage() {
         <LoginForm />
         <img src={MainLogo} alt="Main Logo" />
       </div>
+      <Footer />
     </div>
   );
 }
