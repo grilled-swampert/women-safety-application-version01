@@ -43,7 +43,7 @@ export default function MapContent() {
               Excepteur efficient emerging, minim veniam anim aute carefully
               curated Ginza conversation exquisite perfect nostrud nisi
               intricate Content. Qui international first-className nulla ut.
-              Punctual adipisicing, essential lovely queen tempor eiusmod irure.
+              Punctual, essential lovely queen tempor eiusmod irure.
               Exclusive bespoke charming Scandinavian impeccable aute quality of
               life soft power pariatur Melbourne occaecat discerning. Qui
               wardrobe aliquid, et Porter destination Toto remarkable officia
