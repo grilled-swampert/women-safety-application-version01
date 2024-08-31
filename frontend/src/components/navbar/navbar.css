@@ -94,7 +94,7 @@ a {
   flex: 0.5;
   gap: 1.25rem; /* 20px */
   line-height: 1.25rem; /* 20px */
-  padding: 2.5rem; /* 40px */
+  padding: 40px; 
   list-style: none;
 }
 

@@ -1,9 +1,9 @@
 To get your project up and running, follow these steps:
 
-1. Navigate to the Frontend Directory
+1. Navigate to the Frontend Directory:
    Open your terminal and change the directory to the frontend folder: cd frontend
 
-2. Install Dependencies
+2. Install Dependencies:
    Install the necessary packages by running: npm install
 
 3. Start the Development Server
