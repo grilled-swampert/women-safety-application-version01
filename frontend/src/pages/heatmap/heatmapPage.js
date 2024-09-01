@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/footer";
+import "./heatmapPage.css";
 
 export default function MapPage() {
   useEffect(() => {
@@ -12,7 +14,7 @@ export default function MapPage() {
   return (
     <div>
       <Navbar />
-      <div style={{ textAlign: "left-align", padding: "20px" }}>
+      <div className="heatmapPage">
         <h1>HeatMap:</h1>
         <p>Explore our interactive heatmap showcasing the distribution of crimes against women across India. This visual tool highlights high-risk areas, helping to raise awareness and support efforts to enhance safety and protection for women nationwide.</p>
         <div
@@ -54,6 +56,7 @@ export default function MapPage() {
           }}
         ></div>
       </div>
+      <Footer />
     </div>
   );
 }
