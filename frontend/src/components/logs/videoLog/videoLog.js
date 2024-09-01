@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import './videoLog.css';
 
 const videoData = [
-  { id: 1, location: 'KJ SOMAIYA', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 2, location: 'pop', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 3, location: 'womp', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
-  { id: 4, location: 'bonk', area: 'Ghatkopar West', date: '24/05/2024', time: '9:40 PM', approxMen: 4 },
+  { id: 1, location: 'KJ Somaiya College of Engineering', area: 'Vidyavihar West', approxMen: 6 },
+  { id: 2, location: 'Senroofs', area: 'Mulund East', approxMen: 1 },
+  { id: 3, location: 'St. Xaviers High School', area: 'Thane West', approxMen: 5 },
+  { id: 4, location: 'Pheonix Paragon Plaza', area: 'Kurla West', approxMen: 2 },
 ];
 
 const VideoCard = ({ video }) => (
@@ -24,10 +24,27 @@ const VideoCard = ({ video }) => (
 );
 
 const VideoLogComponent = () => {
+  const [videos, setVideos] = useState(videoData);
   const [filter, setFilter] = useState('');
 
-  const filteredVideos = videoData.filter(video =>
-    video.location.toLowerCase().includes(filter.toLowerCase())
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const updatedVideos = videos.map(video => ({
+        ...video,
+        date: now.toLocaleDateString(),
+        time: now.toLocaleTimeString(),
+      }));
+      setVideos(updatedVideos);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [videos]);
+
+  const filteredVideos = videos.filter(video =>
+    Object.values(video).some(value =>
+      value.toString().toLowerCase().includes(filter.toLowerCase())
+    )
   );
 
   return (
@@ -36,7 +53,7 @@ const VideoLogComponent = () => {
       <div className="filter-container">
         <input
           type="text"
-          placeholder="Filter by location"
+          placeholder="Filter by any field"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           className="filter-input"
