@@ -31,6 +31,13 @@ function animateMarker(marker, routeCoordinates) {
   moveMarker();
 }
 
+const reverseGeocode = async (lat, lng) => {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.display_name || "Unknown Location";
+};
+
 const LeafletMap = () => {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -62,13 +69,15 @@ const LeafletMap = () => {
     setTimeout(() => {
       mapInstanceRef.current.locate({ setView: true, maxZoom: 16 });
 
-      mapInstanceRef.current.on("locationfound", function (e) {
+      mapInstanceRef.current.on("locationfound", async function (e) {
         try {
           myLocationRef.current = e.latlng;
+          const placeName = await reverseGeocode(e.latlng.lat, e.latlng.lng);
+ 
           setLocationInfo({
             lat: e.latlng.lat.toFixed(6),
             lng: e.latlng.lng.toFixed(6),
-            text: "Mera Ghar",
+            text: placeName,
           });
 
           if (mapInstanceRef.current) {
@@ -77,7 +86,7 @@ const LeafletMap = () => {
             let myHome = L.marker(myLocationRef.current, {
               icon: defaultIcon,
             }).addTo(mapInstanceRef.current);
-            myHome.bindPopup("Mera Ghar").openPopup();
+            myHome.bindPopup(placeName).openPopup();
           }
         } catch (error) {
           console.error("Error setting location marker:", error);
@@ -184,7 +193,7 @@ const LeafletMap = () => {
     return [foundLatitude, foundLongitude];
   }
 
-  function routeFromRandomPoint() {
+  async function routeFromRandomPoint() {
     if (!myLocationRef.current) {
       alert("Your location is not yet determined. Please wait.");
       return;
@@ -198,10 +207,12 @@ const LeafletMap = () => {
       return;
     }
 
+    const placeName = await reverseGeocode(randomPoint[0], randomPoint[1]);
+
     setPatrolLocation({
       lat: randomPoint[0].toFixed(6),
       lng: randomPoint[1].toFixed(6),
-      text: "Patrolling Van Location",
+      text: placeName,
     });
 
     let movingMarker = L.marker([randomPoint[0], randomPoint[1]], {
@@ -248,18 +259,18 @@ const LeafletMap = () => {
       </div>
       {locationInfo && (
         <div className="location-info">
-          <h3>Your Location</h3>
+          <h2>Your Location</h2>
           <p>Latitude: {locationInfo.lat}</p>
           <p>Longitude: {locationInfo.lng}</p>
-          <p>{locationInfo.text}</p>
+          <p><strong>{locationInfo.text}</strong></p>
         </div>
       )}
       {patrolLocation && (
         <div className="location-info">
-          <h3>Patrolling Van Location</h3>
+          <h2>Patrol Location</h2>
           <p>Latitude: {patrolLocation.lat}</p>
           <p>Longitude: {patrolLocation.lng}</p>
-          <p>{patrolLocation.text}</p>
+          <p><strong>{patrolLocation.text}</strong></p>
         </div>
       )}
       {routes.length > 0 && (

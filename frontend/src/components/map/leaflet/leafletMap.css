@@ -65,3 +65,15 @@
 .button-remove:hover {
   background-color: #ff1a1a;
 }
+
+.location-info h2 {
+  font-size: 1.3rem; /* 24px */
+  font-weight: 600;
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.location-info p {
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  margin-left: 0.625rem; /* 10px */
+}
