@@ -30,11 +30,11 @@ export default function HomePage() {
             </p>
           </div>
           <div className="information-img">
-            <img className="infoImg" src={informationImg}></img>
+            <img className="infoImg" src={informationImg} alt="information-image"></img>
           </div>
         </div>
         <div className="img">
-          <img className="homeCover" src={homePageCover}></img>
+          <img className="homeCover" src={homePageCover} alt="homepage-image"></img>
         </div>
       </div>
       <Footer />
