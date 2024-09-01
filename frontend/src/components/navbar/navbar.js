@@ -1,13 +1,18 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "../photos/menu.svg";
 import "./navbar.css";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const path = location.pathname;
 
   const getActiveClass = (itemPath) => (path === itemPath ? "active" : "");
+
+  const handleLogout = () => {
+    navigate("/");
+  }
 
   return (
     <div>
@@ -35,7 +40,7 @@ const Navbar = () => {
 
           <ul className="navbar-login">
             <li>
-              <button className="navbar-login-button">Logout</button>
+              <button className="navbar-login-button" onClick={handleLogout}>Logout</button>
             </li>
           </ul>
 
