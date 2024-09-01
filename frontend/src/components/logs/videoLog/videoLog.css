@@ -66,11 +66,13 @@
 }
 
 .video-placeholder {
-  align-items: center;
-  background-color: #eee;
-  height: 200px;
   width: 200px;
-  margin-bottom: 16px;
+  height: 200px; /* Adjust this height based on your design requirements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f5f5f5;
 }
 
 .more-info-btn {
