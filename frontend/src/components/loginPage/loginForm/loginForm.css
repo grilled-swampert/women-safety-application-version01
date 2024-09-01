@@ -33,6 +33,41 @@
   height: 40.875rem;
 }
 
+@media (max-width: 1200px) {
+  .login-card-inner {
+    width: 35rem;
+    height: 35rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-card-inner {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card-inner {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-card-inner {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-card-inner {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
