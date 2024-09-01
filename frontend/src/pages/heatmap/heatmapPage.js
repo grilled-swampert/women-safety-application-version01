@@ -20,7 +20,7 @@ export default function MapPage() {
         <div
           className="tableauPlaceholder"
           id="viz1725183408128"
-          style={{ position: "relative", width: "80%", height: "600px", margin: "0 auto" }}
+          style={{ position: "relative", width: "110%", height: "600px", margin: "0 auto" }}
           dangerouslySetInnerHTML={{
             __html: `
               <noscript>
