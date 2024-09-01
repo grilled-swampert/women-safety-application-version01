@@ -20,7 +20,7 @@ const defaultIcon = L.icon({
 
 function animateMarker(marker, routeCoordinates) {
   let i = 0;
-  const delay = 100; 
+  const delay = 100;
   const moveMarker = () => {
     if (i < routeCoordinates.length) {
       marker.setLatLng([routeCoordinates[i].lat, routeCoordinates[i].lng]);
@@ -37,6 +37,7 @@ const LeafletMap = () => {
   const myLocationRef = useRef(null);
   const [locationInfo, setLocationInfo] = useState(null);
   const [patrolLocation, setPatrolLocation] = useState(null);
+  const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
     const defaultMumbaiPosition = [19.076, 72.8777];
@@ -203,6 +204,10 @@ const LeafletMap = () => {
       text: "Patrolling Van Location",
     });
 
+    let movingMarker = L.marker([randomPoint[0], randomPoint[1]], {
+      icon: defaultIcon,
+    }).addTo(mapInstanceRef.current);
+
     let routeControl = L.Routing.control({
       waypoints: [
         L.latLng(randomPoint[0], randomPoint[1]),
@@ -213,28 +218,22 @@ const LeafletMap = () => {
       },
     }).addTo(mapInstanceRef.current);
 
-    let movingMarker = L.marker([randomPoint[0], randomPoint[1]], {
-      icon: defaultIcon,
-    }).addTo(mapInstanceRef.current);
-
     routeControl.on("routesfound", function (e) {
       let route = e.routes[0].coordinates;
       animateMarker(movingMarker, route);
     });
+
+    setRoutes((prevRoutes) => [
+      ...prevRoutes,
+      { routeControl, marker: movingMarker },
+    ]);
   }
 
   return (
     <div>
-      <div
-        ref={mapRef}
-        id="map"
-        style={{ width: "100%", height: "500px" }}
-      ></div>
+      <div ref={mapRef} id="map" style={{ width: "100%", height: "500px" }}></div>
       <div className="button-container">
-        <button
-          onClick={findNearestPoliceStation}
-          className="button button-primary"
-        >
+        <button onClick={findNearestPoliceStation} className="button button-primary">
           Find Nearest Police Station
         </button>
         <button
@@ -261,6 +260,28 @@ const LeafletMap = () => {
           <p>Latitude: {patrolLocation.lat}</p>
           <p>Longitude: {patrolLocation.lng}</p>
           <p>{patrolLocation.text}</p>
+        </div>
+      )}
+      {routes.length > 0 && (
+        <div className="routes-info">
+          <h3>Active Routes</h3>
+          {routes.map((route, index) => (
+            <div key={index} className="route-item">
+              <p>Route #{index + 1}</p>
+              <button
+                onClick={() => {
+                  route.routeControl.getPlan().setWaypoints([]);
+                  mapInstanceRef.current.removeLayer(route.marker);
+                  setRoutes((prevRoutes) =>
+                    prevRoutes.filter((_, i) => i !== index)
+                  );
+                }}
+                className="button button-remove"
+              >
+                Remove Route
+              </button>
+            </div>
+          ))}
         </div>
       )}
     </div>

@@ -42,3 +42,26 @@
 .button:active {
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5); /* 4px 16px */
 }
+
+.routes-info {
+  margin-top: 20px;
+}
+
+.route-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.button-remove {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.button-remove:hover {
+  background-color: #ff1a1a;
+}

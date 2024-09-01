@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./mapContent.css";
 
 import cctvFootage from "../photos/cctvFootage.svg";
-import sampleMap from "../photos/sampleMap.png";
 import LeafletMap from "../leaflet/leafletMap";
 
 export default function MapContent() {
@@ -19,10 +18,6 @@ export default function MapContent() {
       <div className="map-container">
         <div className="map-image">
           <LeafletMap onLocationSelected={handleLocationSelected} />
-        </div>
-        <div className="alert-overlay">
-          <span className="alert-icon">!</span>
-          ALERT (1)
         </div>
       </div>
       <div className="cctv-container">
