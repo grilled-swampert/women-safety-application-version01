@@ -18,11 +18,25 @@ const defaultIcon = L.icon({
   shadowSize: [41, 41],
 });
 
+function animateMarker(marker, routeCoordinates) {
+  let i = 0;
+  const delay = 100; 
+  const moveMarker = () => {
+    if (i < routeCoordinates.length) {
+      marker.setLatLng([routeCoordinates[i].lat, routeCoordinates[i].lng]);
+      i++;
+      setTimeout(moveMarker, delay);
+    }
+  };
+  moveMarker();
+}
+
 const LeafletMap = () => {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const myLocationRef = useRef(null);
   const [locationInfo, setLocationInfo] = useState(null);
+  const [patrolLocation, setPatrolLocation] = useState(null);
 
   useEffect(() => {
     const defaultMumbaiPosition = [19.076, 72.8777];
@@ -148,56 +162,66 @@ const LeafletMap = () => {
       .catch((err) => console.error(err));
   };
 
-  const routeFromRandomPoint = () => {
-    mapInstanceRef.current.on("click", function (e) {
-      let clickedPoint = e.latlng;
+  function getRandomPoint(center, radius) {
+    let x0 = center.lng;
+    let y0 = center.lat;
+    let radiusInDegrees = radius / 111320;
 
-      let staticMarker = L.marker([clickedPoint.lat, clickedPoint.lng], {
-        icon: defaultIcon,
-      })
-        .addTo(mapInstanceRef.current)
-        .bindPopup("Clicked Point")
-        .openPopup();
+    let u = Math.random();
+    let v = Math.random();
 
-      let routeControl = L.Routing.control({
-        waypoints: [
-          L.latLng(clickedPoint.lat, clickedPoint.lng),
-          L.latLng(myLocationRef.current),
-        ],
-        createMarker: function () {
-          return null;
-        },
-      }).addTo(mapInstanceRef.current);
+    let w = radiusInDegrees * Math.sqrt(u);
+    let t = 2 * Math.PI * v;
+    let x = w * Math.cos(t);
+    let y = w * Math.sin(t);
 
-      routeControl.on("routesfound", function (e) {
-        let routes = e.routes;
-        let movingMarker = L.marker([clickedPoint.lat, clickedPoint.lng], {
-          icon: defaultIcon,
-        })
-          .addTo(mapInstanceRef.current)
-          .bindPopup("Moving to Your Location");
+    let newX = x / Math.cos(y0 * (Math.PI / 180));
 
-        animateMarker(movingMarker, routes[0].coordinates);
-      });
-    });
-  };
+    let foundLongitude = newX + x0;
+    let foundLatitude = y + y0;
 
-  const animateMarker = (marker, route) => {
-    let i = 0;
-    const animationSpeed = 200;
+    return [foundLatitude, foundLongitude];
+  }
 
-    function moveMarker() {
-      if (i < route.length) {
-        marker.setLatLng(L.latLng(route[i].lat, route[i].lng));
-        mapInstanceRef.current.panTo(L.latLng(route[i].lat, route[i].lng));
-        i++;
-        setTimeout(moveMarker, animationSpeed);
-      } else {
-        marker.setPopupContent("Arrived at Your Location").openPopup();
-      }
+  function routeFromRandomPoint() {
+    if (!myLocationRef.current) {
+      alert("Your location is not yet determined. Please wait.");
+      return;
     }
-    moveMarker();
-  };
+
+    let randomPoint = getRandomPoint(myLocationRef.current, 3000);
+
+    if (isNaN(randomPoint[0]) || isNaN(randomPoint[1])) {
+      console.error("Generated invalid random point:", randomPoint);
+      alert("Failed to generate a valid random point. Please try again.");
+      return;
+    }
+
+    setPatrolLocation({
+      lat: randomPoint[0].toFixed(6),
+      lng: randomPoint[1].toFixed(6),
+      text: "Patrolling Van Location",
+    });
+
+    let routeControl = L.Routing.control({
+      waypoints: [
+        L.latLng(randomPoint[0], randomPoint[1]),
+        L.latLng(myLocationRef.current.lat, myLocationRef.current.lng),
+      ],
+      createMarker: function () {
+        return null;
+      },
+    }).addTo(mapInstanceRef.current);
+
+    let movingMarker = L.marker([randomPoint[0], randomPoint[1]], {
+      icon: defaultIcon,
+    }).addTo(mapInstanceRef.current);
+
+    routeControl.on("routesfound", function (e) {
+      let route = e.routes[0].coordinates;
+      animateMarker(movingMarker, route);
+    });
+  }
 
   return (
     <div>
@@ -229,6 +253,14 @@ const LeafletMap = () => {
           <p>Latitude: {locationInfo.lat}</p>
           <p>Longitude: {locationInfo.lng}</p>
           <p>{locationInfo.text}</p>
+        </div>
+      )}
+      {patrolLocation && (
+        <div className="location-info">
+          <h3>Patrolling Van Location</h3>
+          <p>Latitude: {patrolLocation.lat}</p>
+          <p>Longitude: {patrolLocation.lng}</p>
+          <p>{patrolLocation.text}</p>
         </div>
       )}
     </div>
