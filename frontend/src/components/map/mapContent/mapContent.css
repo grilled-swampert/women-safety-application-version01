@@ -86,7 +86,7 @@
   padding-bottom: 2.5rem; /* 40px */
   font-weight: 400;
   font-size: 1.5625rem; /* 25px */
-  color: darkgray;
+  color: rgb(95, 95, 95);
 }
 
 .cctv-imp-info {
@@ -95,7 +95,7 @@
   padding-bottom: 1.25rem; /* 20px */
   font-weight: 400;
   font-size: 1.5625rem; /* 25px */
-  color: grey;
+  color: rgb(85, 85, 85);
 }
 
 .cctv-info p {

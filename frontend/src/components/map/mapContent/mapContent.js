@@ -1,4 +1,3 @@
-// MapContent.js
 import React, { useState } from "react";
 import "./mapContent.css";
 
@@ -27,32 +26,28 @@ export default function MapContent() {
           </div>
           <div className="cctv-info">
             <h3>CCTV Footage</h3>
-            <p>
-              <strong>KJ Somaiya College of Engineering</strong>
+            <p className="cctv-location">
+              <strong>{locationInfo?.text || "No location selected"}</strong>
             </p>
             <p className="cctv-imp-info">
-              Body text for your whole article or post. We'll put in some lorem
-              ipsum to show how a filled-out page might look:
+              Important information about the location:
             </p>
             <p>
-              Excepteur efficient emerging, minim veniam anim aute carefully
-              curated Ginza conversation exquisite perfect nostrud nisi
-              intricate Content. Qui international first-className nulla ut.
-              Punctual, essential lovely queen tempor eiusmod irure.
-              Exclusive bespoke charming Scandinavian impeccable aute quality of
-              life soft power pariatur Melbourne occaecat discerning. Qui
-              wardrobe aliquid, et Porter destination Toto remarkable officia
-              Helsinki excepteur Basset hound. Zürich sleepy perfect
-              consectetur.
+              Number of people: <strong>{locationInfo?.people || 4}</strong>
             </p>
-            {locationInfo && (
-              <div className="location-info">
-                <h4>Your Location</h4>
-                <p>
-                  Latitude: {locationInfo.lat}, Longitude: {locationInfo.lng}
-                </p>
-              </div>
-            )}
+            <p>
+              Time:{" "}
+              <strong>
+                {new Date().toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </strong>
+            </p>
+            <p>
+              Gesture: {" "}
+              <strong>{locationInfo?.gesture || "Standing"}</strong>
+            </p>
           </div>
         </div>
       </div>

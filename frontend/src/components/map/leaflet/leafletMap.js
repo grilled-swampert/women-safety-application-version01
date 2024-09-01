@@ -38,7 +38,7 @@ const reverseGeocode = async (lat, lng) => {
   return data.display_name || "Unknown Location";
 };
 
-const LeafletMap = () => {
+const LeafletMap = (props) => {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const myLocationRef = useRef(null);
@@ -74,11 +74,17 @@ const LeafletMap = () => {
           myLocationRef.current = e.latlng;
           const placeName = await reverseGeocode(e.latlng.lat, e.latlng.lng);
  
-          setLocationInfo({
+          const locationData = ({
             lat: e.latlng.lat.toFixed(6),
             lng: e.latlng.lng.toFixed(6),
             text: placeName,
           });
+
+          setLocationInfo(locationData);
+
+          if (props.onLocationSelected) {
+            props.onLocationSelected(locationData);
+          }
 
           if (mapInstanceRef.current) {
             mapInstanceRef.current.removeLayer(mumbaiMarker);
