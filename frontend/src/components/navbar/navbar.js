@@ -19,7 +19,7 @@ const Navbar = () => {
       <header>
         <nav className="navbar-container">
           <div className="navbar-logo">
-            <h4 data-aos="fade-down">LOGO</h4>
+            <h4 data-aos="fade-down">DIVYA DRISHTI</h4>
             <div className="navbar-logo-overlay"></div>
           </div>
 
