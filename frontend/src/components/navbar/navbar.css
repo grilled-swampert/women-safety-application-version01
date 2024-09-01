@@ -9,6 +9,8 @@ a {
 
 .navbar-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   background-color: #ccdbfd;
   height: 12vh;
